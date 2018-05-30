@@ -1,6 +1,6 @@
 package com.example.fzksb.feladatfelado.Model;
 
-public abstract class User {
+public abstract class User extends com.example.fzksb.feladatfelado.Database.User {
     String username;
     String password;
     public String Username(){
