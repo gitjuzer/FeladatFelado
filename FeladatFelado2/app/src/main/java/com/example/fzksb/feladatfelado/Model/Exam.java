@@ -1,4 +1,7 @@
+package com.example.fzksb.feladatfelado.Model;
+
 import java.util.ArrayList;
+
 
 public class Exam {
     public int maxScore;
