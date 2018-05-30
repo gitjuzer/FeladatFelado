@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".MainActivity">
+=======
+>>>>>>> d30a3ca4cfd8cdcdc9ececaa20e51a70d6f6702a
     tools:context=".View.MainActivity">
 
     <android.support.design.widget.AppBarLayout
