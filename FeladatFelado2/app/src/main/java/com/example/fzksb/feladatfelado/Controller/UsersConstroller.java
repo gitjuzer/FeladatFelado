@@ -1,22 +1,18 @@
-package com.example.fzksb.feladatfelado.Database;
+package com.example.fzksb.feladatfelado.Controller;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
+import com.example.fzksb.feladatfelado.Model.User;
 import com.example.fzksb.feladatfelado.R;
-import com.example.fzksb.feladatfelado.Database.User;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder> {
+public class UsersConstroller extends RecyclerView.Adapter<UsersConstroller.MyViewHolder> {
 
     private Context context;
     private List<User> usersList;
@@ -30,10 +26,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
         }
     }
 
-
-    public UsersAdapter(Context context, List<User> notesList) {
+    public UsersConstroller(Context context) {
         this.context = context;
-        this.usersList = notesList;
+
+        this.usersList = usersList;
     }
 
     @Override
