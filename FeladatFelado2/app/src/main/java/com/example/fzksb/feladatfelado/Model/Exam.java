@@ -1,13 +1,18 @@
 package com.example.fzksb.feladatfelado.Model;
 
-import java.util.ArrayList;
-
-
 public class Exam {
-    public int maxScore;
-    int score;
-    public int getMaxScore(){
-        return score;
+    int id;
+    int teacher;
+    int subject;
+
+    public Exam(){};
+    public Exam(int teacher, int subject) {
+        this.teacher = teacher;
+        this.subject = subject;
     }
-    ArrayList<Task> tasks;
+    public Exam(int id, int teacher, int subject) {
+        this.id = id;
+        this.teacher = teacher;
+        this.subject = subject;
+    }
 }
