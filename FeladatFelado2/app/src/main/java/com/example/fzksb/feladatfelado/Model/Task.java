@@ -18,7 +18,9 @@ class ChoseOne extends Task{
 
     @Override
     public int CheckAnswer() {
-        return 0;
+
+        int point = (answer == rightAnswer)?1:0;
+        return point;
     }
 }
 
@@ -30,7 +32,12 @@ class ChoseMore extends Task{
 
     @Override
     public int CheckAnswer() {
-        return 0;
+        int point = 0;
+        for(int i = 0; i < answers.size(); i++){
+            if(rightAnswers.contains(answers.get(i)))
+                point++;
+        }
+        return point;
     }
 }
 
@@ -40,6 +47,11 @@ class ShortAnswer extends Task{
 
     @Override
     public int CheckAnswer() {
-        return 0;
+        int point = 0;
+        for(int i = 0; i < keywords.size(); i++){
+            if(Answer.contains(keywords.get(i)))
+                point++;
+        }
+        return point;
     }
 }
