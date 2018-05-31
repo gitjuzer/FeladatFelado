@@ -130,8 +130,8 @@ public class QuizTask {
         return moreAvailable;
     }
 
-    public void setMoreAvailable(boolean moreAvailable) {
-        this.moreAvailable = moreAvailable;
+    public void setMoreAvailable(int moreAvailable) {
+        this.moreAvailable = moreAvailable == 0 ? false : true;
     }
 
     public int getNumber() {

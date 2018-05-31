@@ -1,5 +1,11 @@
 package com.example.fzksb.feladatfelado.Model;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.fzksb.feladatfelado.Helper.DatabaseHelper;
+import com.example.fzksb.feladatfelado.Interfaces.IAnwser;
+
 public class Anwser {
     int id;
     String anwser;
