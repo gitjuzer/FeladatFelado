@@ -1,7 +1,10 @@
 package com.example.fzksb.feladatfelado.Model;
 
+import com.example.fzksb.feladatfelado.Helper.DatabaseHelper;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 public class User {
 
@@ -11,6 +14,7 @@ public class User {
     private String studentId = null;
 
     public User() {
+
     }
     public User(String username, String password) {
         this.username = username;

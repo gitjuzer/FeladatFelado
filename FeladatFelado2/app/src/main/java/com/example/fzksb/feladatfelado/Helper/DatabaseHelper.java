@@ -74,6 +74,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_STUDENTID = "studentid";
 
+    SQLiteDatabase myDB;
+
 
     // Table Create Statements
     // Anwsers table create statement
@@ -127,6 +129,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_SUBJECTS);
         db.execSQL(CREATE_TABLE_USERS);
         db.execSQL(CREATE_TABLE_WRITETASK);
+
+
     }
 
     @Override
@@ -830,10 +834,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[] { String.valueOf(writeTask.getId()) });
     }
 
+    public void openDB(){
+        myDB = getWritableDatabase();
+
+    }
+
     // closing database
     public void closeDB() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        if (db != null && db.isOpen())
-            db.close();
+        if (myDB != null && myDB.isOpen())
+            myDB.close();
     }
 }

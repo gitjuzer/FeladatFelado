@@ -15,10 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.fzksb.feladatfelado.Helper.DatabaseHelper;
 import com.example.fzksb.feladatfelado.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,11 @@ public class MainActivity extends AppCompatActivity
         //add this line to display menu1 when the activity is loaded
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        db.openDB();
+    }
 
     @Override
     public void onBackPressed() {
