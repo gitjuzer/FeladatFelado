@@ -96,8 +96,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // QuizTasks table create statement
     private static final String CREATE_TABLE_QUIZTASKS = "CREATE TABLE "
             + TABLE_QUIZTASK + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_EXAM
-            + " INTEGER NOT NULL," + KEY_QUESTION + " TEXT NOT NULL," + KEY_AANWSER + "TEXT NOT NULL," + KEY_BANWSER + "TEXT NOT NULL," + KEY_CANWSER + "TEXT," + KEY_DANWSER + "TEXT,"
-            + KEY_MOREAVAILABLE + "BOOLEAN NOT NULL," + KEY_NUMBER + "INT NOT NULL" +")";
+            + " INTEGER NOT NULL," + KEY_QUESTION + " TEXT NOT NULL," + KEY_AANWSER + " TEXT NOT NULL," + KEY_BANWSER + " TEXT NOT NULL," + KEY_CANWSER + " TEXT," + KEY_DANWSER + " TEXT,"
+            + KEY_MOREAVAILABLE + " BOOLEAN NOT NULL," + KEY_NUMBER + " INTEGER NOT NULL" + ")";
 
     // Subjects table create statement
     private static final String CREATE_TABLE_SUBJECTS = "CREATE TABLE "
@@ -112,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // WriteTask table create statement
     private static final String CREATE_TABLE_WRITETASK = "CREATE TABLE "
             + TABLE_WRITETASK + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_EXAM
-            + " TEXT NOT NULL," + KEY_QUESTION + " TEXT NOT NULL," + KEY_NUMBER + "INTEGER NOT NULL" + ")";
+            + " TEXT NOT NULL," + KEY_QUESTION + " TEXT NOT NULL," + KEY_NUMBER + " INTEGER NOT NULL" + ")";
 
     public DatabaseHelper(Context context) {
         super(context, String.valueOf(DATABASE_NAME), null, DATABASE_VERSION);
