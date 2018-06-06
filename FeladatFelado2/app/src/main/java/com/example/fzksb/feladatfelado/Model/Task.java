@@ -3,8 +3,9 @@ package com.example.fzksb.feladatfelado.Model;
 import java.util.ArrayList;
 
 public abstract class Task {
-    public int score;
-    int maxscore;
+    protected int exam;
+    protected int score;
+    protected int maxscore;
     public int getMaxScore(){
         return maxscore;
     }
@@ -12,9 +13,16 @@ public abstract class Task {
 }
 
 class ChoseOne extends Task{
+
     ArrayList<String> answers;
     int rightAnswer;
     public int answer;
+
+    public ChoseOne(int exam, ArrayList<String> answers, int rightAnswer){
+        this.exam = exam;
+        this.answers = answers;
+        this.rightAnswer = rightAnswer;
+    }
 
     @Override
     public int CheckAnswer() {
@@ -26,9 +34,18 @@ class ChoseOne extends Task{
 
 class ChoseMore extends Task{
     ArrayList<String> answers;
+
+
+
     ArrayList<Integer> rightAnswers;
 
     public ArrayList<Integer> givenAnswers;
+
+    public ChoseMore(int exam, ArrayList<String> answers, ArrayList<Integer> rightAnswers){
+        this.exam = exam;
+        this.answers = answers;
+        this.rightAnswers = rightAnswers;
+    }
 
     @Override
     public int CheckAnswer() {
@@ -42,14 +59,40 @@ class ChoseMore extends Task{
 }
 
 class ShortAnswer extends Task{
-    public String Answer;
-    ArrayList<String> keywords;
+    private String answer;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+        CheckAnswer();
+    }
+
+    private ArrayList<String> keywords;
+
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(ArrayList<String> keywords) {
+        this.keywords = keywords;
+    }
+
+    public ShortAnswer(int exam, ArrayList<String> keywords){
+        this.exam = exam;
+        this.keywords = keywords;
+    }
+
+
 
     @Override
     public int CheckAnswer() {
         int point = 0;
+
         for(int i = 0; i < keywords.size(); i++){
-            if(Answer.contains(keywords.get(i)))
+            if(answer.contains(keywords.get(i)))
                 point++;
         }
         return point;

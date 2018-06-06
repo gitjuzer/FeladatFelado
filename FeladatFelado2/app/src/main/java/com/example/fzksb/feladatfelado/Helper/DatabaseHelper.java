@@ -162,7 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_WRITETASKID, anwser.getWriteTaskId());
 
         // insert row
-        long anwser_id = db.insert(TABLE_ANWSERS, null, values);
+        long anwser_id = db.insertOrThrow(TABLE_ANWSERS, null, values);
 
         return anwser_id;
     }
@@ -178,7 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_SUBJECT, exam.getSubject());
 
         // insert row
-        long exam_id = db.insert(TABLE_EXAMS, null, values);
+        long exam_id = db.insertOrThrow(TABLE_EXAMS, null, values);
 
         return exam_id;
     }
@@ -194,7 +194,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_STUDENT, grade.getStudentId());
 
         // insert row
-        long grade_id = db.insert(TABLE_GRADES, null, values);
+        long grade_id = db.insertOrThrow(TABLE_GRADES, null, values);
 
         return grade_id;
     }
@@ -216,7 +216,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_NUMBER, quizTask.getNumber());
 
         // insert row
-        long quizTask_id = db.insert(TABLE_QUIZTASK, null, values);
+        long quizTask_id = db.insertOrThrow(TABLE_QUIZTASK, null, values);
 
         return quizTask_id;
     }
@@ -231,7 +231,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_NAME, subject.getName());
 
         // insert row
-        long subject_id = db.insert(TABLE_SUBJECTS, null, values);
+        long subject_id = db.insertOrThrow(TABLE_SUBJECTS, null, values);
 
         return subject_id;
     }
@@ -265,7 +265,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_NUMBER, writeTask.getNumber());
 
         // insert row
-        long writeTask_id = db.insert(TABLE_WRITETASK, null, values);
+        long writeTask_id = db.insertOrThrow(TABLE_WRITETASK, null, values);
 
         return writeTask_id;
     }

@@ -5,6 +5,7 @@ import com.example.fzksb.feladatfelado.Helper.DatabaseHelper;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 

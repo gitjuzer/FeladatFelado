@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        User student = new User(0,"Student", "password", 1);
+        /*User student = new User(0,"Student", "password", 1);
         User teacher = new User(1,"Teacher", "password");
         db.createUser(student);
-        db.createUser(teacher);
+        db.createUser(teacher);*/
         List<User> testUsers = db.getAllUser();
         Log.d("testlog" ,testUsers.get(0).getPassword());
         db.closeDB();
