@@ -13,10 +13,11 @@ public class User {
     private String password;
     private String studentId = null;
 
-    public User() {
+    public User(){
 
     }
-    public User(String username, String password) {
+
+    public User(int id,String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -31,7 +32,7 @@ public class User {
         return id;
     }
     public void setId(int id) {
-        this.id = id;
+            this.id = id;
     }
 
     public String getUsername() {

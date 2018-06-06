@@ -12,11 +12,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.fzksb.feladatfelado.Helper.DatabaseHelper;
+import com.example.fzksb.feladatfelado.Model.User;
 import com.example.fzksb.feladatfelado.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+        db = new DatabaseHelper(this);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -45,7 +50,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        db.openDB();
+        User student = new User(0,"Student", "password", 1);
+        User teacher = new User(1,"Teacher", "password");
+        db.createUser(student);
+        db.createUser(teacher);
+        List<User> testUsers = db.getAllUser();
+        Log.d("testlog" ,testUsers.get(0).getPassword());
+        db.closeDB();
     }
 
     @Override

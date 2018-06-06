@@ -107,7 +107,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Users table create statement
     private static final String CREATE_TABLE_USERS = "CREATE TABLE "
             + TABLE_USERS + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERNAME
-            + " TEXT NOT NULL UNIQUE," + KEY_PASSWORD + " TEXT NOT NULL," + KEY_STUDENTID + "INTEGER NOT NULL" + ")";
+            + " TEXT NOT NULL UNIQUE," + KEY_PASSWORD + " TEXT NOT NULL," + KEY_STUDENTID + " INTEGER" + ")";
 
     // WriteTask table create statement
     private static final String CREATE_TABLE_WRITETASK = "CREATE TABLE "
@@ -241,14 +241,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public long createUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
-
+        String architecture = db.toString();
         ContentValues values = new ContentValues();
-        values.put(KEY_USERNAME, user.getUsername());
-        values.put(KEY_PASSWORD, user.getPassword());
         values.put(KEY_STUDENTID, user.getStudentId());
+        values.put(KEY_PASSWORD, user.getPassword());
+        values.put(KEY_USERNAME, user.getUsername());
 
         // insert row
-        long user_id = db.insert(TABLE_USERS, null, values);
+        long user_id = db.insertOrThrow(TABLE_USERS, null, values);
 
         return user_id;
     }
@@ -834,14 +834,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[] { String.valueOf(writeTask.getId()) });
     }
 
-    public void openDB(){
-        myDB = getWritableDatabase();
-
-    }
 
     // closing database
     public void closeDB() {
-        if (myDB != null && myDB.isOpen())
-            myDB.close();
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (db != null && db.isOpen())
+            db.close();
     }
 }
