@@ -20,12 +20,12 @@ public class User {
 
     public User(int id,String username, String password) {
         this.username = username;
-        this.password = password;
+        setPassword(password);
     }
     public User(int id, String username, String password, int studentId) {
         this.id = id;
         this.username = username;
-        this.password = password;
+        setPassword(password);
         this.studentId = String.valueOf(studentId);
     }
 
